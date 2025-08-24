@@ -58,7 +58,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-black shadow-md">
+<header class="bg-black shadow-md">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
@@ -77,8 +77,8 @@
       </nav>
 
       <!-- Botón menú móvil -->
-      <button id="menu-btn" class="md:hidden focus:outline-none">
-        <i class="fas fa-bars text-gray-300 text-xl"></i>
+      <button id="menu-btn" class="md:hidden focus:outline-none text-gray-300 text-2xl">
+        <i class="fas fa-bars"></i>
       </button>
     </div>
   </div>
@@ -94,14 +94,27 @@
 </header>
 
 <script>
-  // script para abrir/cerrar menú
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = menuBtn.querySelector("i");
 
+  // Abrir/cerrar menú
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
+    menuIcon.classList.toggle("fa-bars");
+    menuIcon.classList.toggle("fa-times");
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      menuIcon.classList.add("fa-bars");
+      menuIcon.classList.remove("fa-times");
+    });
   });
 </script>
+
 
     <!-- Hero Section -->
     <section class="py-20 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
