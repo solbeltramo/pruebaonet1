@@ -59,25 +59,49 @@
 <body class="bg-gray-50">
     <!-- Header -->
     <header class="bg-black shadow-md">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <img src="image/mi-nuevo-logo" alt="Logo Onetech" class="h-12 mr-3">
-                    <h1 class="text-2xl font-bold text-white">ONETECH</h1>
-                </div>
-                <nav class="hidden md:block">
-                    <ul class="flex space-x-8">
-                        <li><a href="#servicios" class="text-gray-300 hover:text-primary transition">Servicios</a></li>
-                        <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-primary transition">Nosotros</a></li>
-                        <li><a href="#contacto" class="text-gray-300 hover:text-primary transition">Contacto</a></li>
-                    </ul>
-                </nav>
-                <button class="md:hidden focus:outline-none">
-                    <i class="fas fa-bars text-gray-300 text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="image/mi-nuevo-logo" alt="Logo Onetech" class="h-12 mr-3">
+        <h1 class="text-2xl font-bold text-white">ONETECH</h1>
+      </div>
+
+      <!-- Menú escritorio -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          <li><a href="#servicios" class="text-gray-300 hover:text-primary transition">Servicios</a></li>
+          <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-primary transition">Nosotros</a></li>
+          <li><a href="#contacto" class="text-gray-300 hover:text-primary transition">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <i class="fas fa-bars text-gray-300 text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú desplegable móvil -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-black">
+    <ul class="flex flex-col space-y-4 px-6 py-4">
+      <li><a href="#servicios" class="text-gray-300 hover:text-primary transition">Servicios</a></li>
+      <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-primary transition">Nosotros</a></li>
+      <li><a href="#contacto" class="text-gray-300 hover:text-primary transition">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // script para abrir/cerrar menú
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
 
     <!-- Hero Section -->
     <section class="py-20 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
