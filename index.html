@@ -321,22 +321,23 @@
 </section>
 
     <!-- Llamado a la acción -->
-    <section class="py-16 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Necesitas reparar tu dispositivo?</h2>
-            <p class="text-xl mb-8">Contáctanos ahora y obtén una solución rápida y profesional</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="tel:+3564691487" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
-                    <i class="fas fa-phone-alt mr-2"></i> Llamar ahora
-                </a>
-                <a href="https://wa.link" target="_blank" class="bg-purple-900 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-800 transition duration-300 inline-flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2"></i> Enviar WhatsApp
-                </a>
-            </div>
+<section class="py-16 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Necesitas reparar tu dispositivo?</h2>
+        <p class="text-xl mb-8">Contáctanos ahora y obtén una solución rápida y profesional</p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <!-- Botón solo con acción, sin repetir el número -->
+            <a href="tel:+3564691487" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
+                <i class="fas fa-phone-alt mr-2"></i> Llamar ahora
+            </a>
+            <a href="https://wa.link" target="_blank" class="bg-purple-900 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-800 transition duration-300 inline-flex items-center justify-center">
+                <i class="fab fa-whatsapp mr-2"></i> Enviar WhatsApp
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -356,17 +357,15 @@
                 <ul class="space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
-                        <span class="text-gray-400">Celular: 3564 691487</span>
+                        <!-- Número único -->
+                        <a href="tel:+3564691487" class="text-gray-400 hover:text-primary transition">3564 691487</a>
+                    </li>
                     <li class="flex items-center">
-    <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
-    <span class="text-gray-400">Celular: 3564 691487</span>
-<li class="flex items-center">
-    <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
-    <a href="https://www.google.com/maps/place/San+Francisco,+Córdoba" target="_blank" class="text-white hover:text-primary transition">
-        San Francisco, Córdoba
-    </a>
-</li>
-
+                        <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
+                        <a href="https://www.google.com/maps/place/San+Francisco,+Córdoba" target="_blank" class="text-white hover:text-primary transition">
+                            San Francisco, Córdoba
+                        </a>
+                    </li>
                 </ul>
             </div>
             
