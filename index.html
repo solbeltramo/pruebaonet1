@@ -1,111 +1,658 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onetech - Servicio Técnico Profesional de Celulares</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .bg-primary {
-    background-color: #770390; /* Lila personalizado */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onetech Servicio Técnico | Reparación de Celulares, Consolas y Accesorios</title>
+<meta name="description" content="Servicio técnico especializado en celulares de todas las marcas, consolas, joysticks y accesorios tecnológicos en San Francisco, Córdoba. Diagnóstico sin cargo, garantía y entrega rápida.">
+<meta name="keywords" content="servicio técnico celulares, reparación de celulares San Francisco Córdoba, cambio de módulo, microsoldadura, reparación consolas PS4 PS5 Xbox, accesorios para celulares, onetech">
+<meta name="author" content="Onetech Servicio Técnico">
+<link rel="canonical" href="https://onetechserviciotecnico.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Onetech Servicio Técnico | Reparación de Celulares y Consolas">
+<meta property="og:description" content="Servicio técnico especializado en celulares, consolas y accesorios. Diagnóstico sin cargo y garantía en todas las reparaciones.">
+<meta property="og:image" content="https://onetechserviciotecnico.com/image/logo.png">
+<meta property="og:locale" content="es_AR">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="image/favicon.png">
+<link rel="apple-touch-icon" href="image/favicon.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#180726;
+  --bg-soft:#220a31;
+  --surface:#2a0e3a;
+  --surface-2:#331347;
+  --line:rgba(255,255,255,.08);
+  --purple:#6f1f8a;
+  --pink:#f0299b;
+  --orange:#ff8a3d;
+  --text:#f5f2f8;
+  --muted:#b7a4c7;
+}
+*{ scroll-behavior:smooth; }
+body{
+  font-family:'Inter', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+h1,h2,h3,.font-display{ font-family:'Space Grotesk', sans-serif; }
+.font-mono{ font-family:'JetBrains Mono', monospace; }
+
+.text-grad{
+  background:linear-gradient(100deg, var(--purple), var(--pink) 55%, var(--orange));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.bg-grad{ background:linear-gradient(100deg, var(--purple), var(--pink) 55%, var(--orange)); }
+
+/* ---------- Header ---------- */
+header{
+  background:rgba(10,7,16,.72);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-link{ position:relative; color:var(--muted); }
+.nav-link:hover{ color:var(--text); }
+.nav-link::after{
+  content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px;
+  background:linear-gradient(90deg, var(--pink), var(--orange));
+  transition:width .25s ease;
+}
+.nav-link:hover::after{ width:100%; }
+
+/* ---------- Hero grid + glow ---------- */
+.hero{ position:relative; overflow:hidden; }
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 85%);
+}
+.glow{
+  position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none;
+}
+.glow-1{ width:480px; height:480px; background:var(--purple); opacity:.45; top:-160px; left:-120px; animation:drift 16s ease-in-out infinite; }
+.glow-2{ width:420px; height:420px; background:var(--pink); opacity:.35; bottom:-180px; right:-100px; animation:drift 18s ease-in-out infinite reverse; }
+.glow-3{ width:300px; height:300px; background:var(--orange); opacity:.25; top:20%; right:12%; animation:drift 13s ease-in-out infinite; }
+@keyframes drift{
+  0%,100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(35px,25px) scale(1.08); }
 }
 
-.text-primary {
-    color: #770390; /* Lila personalizado */
+/* Phone showcase: celular con anillos tipo isotipo + logos flotando */
+.phone-showcase{
+  position:relative;
+  height:440px;
+  display:flex; align-items:center; justify-content:center;
+}
+.phone-mock{
+  position:relative;
+  width:168px; height:334px;
+  border-radius:32px;
+  background:linear-gradient(160deg, var(--surface-2), var(--bg-soft));
+  border:2px solid rgba(255,255,255,.12);
+  box-shadow:0 25px 60px rgba(0,0,0,.6), inset 0 0 30px rgba(240,41,155,.08);
+  animation:phone-float 6s ease-in-out infinite;
+  z-index:3;
+}
+.phone-mock::before{
+  content:''; position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  width:44px; height:5px; border-radius:6px; background:rgba(255,255,255,.15);
+}
+.phone-mock .screen-glow{
+  position:absolute; inset:34px 14px; border-radius:20px;
+  background:linear-gradient(160deg, rgba(139,18,171,.35), rgba(240,41,155,.15) 50%, rgba(255,138,61,.2));
+  display:flex; align-items:center; justify-content:center;
+}
+@keyframes phone-float{
+  0%,100%{ transform:translateY(0) rotate(-2deg); }
+  50%{ transform:translateY(-16px) rotate(2deg); }
 }
 
-.border-primary {
-    border-color: #770390; /* Lila personalizado */
+.ring{
+  position:absolute; top:50%; left:50%;
+  width:280px; height:98px;
+  background:conic-gradient(from 180deg, var(--purple), var(--pink), var(--orange), var(--purple));
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 5px));
+          mask:radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 5px));
+  border-radius:50%;
+  z-index:2;
+  opacity:.9;
+}
+.ring-a{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(-8deg); animation:ring-spin-a 10s linear infinite; }
+.ring-b{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(22deg); width:250px; height:86px; opacity:.6; animation:ring-spin-b 13s linear infinite; }
+@keyframes ring-spin-a{
+  0%{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(-8deg); }
+  100%{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(352deg); }
+}
+@keyframes ring-spin-b{
+  0%{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(22deg); }
+  100%{ transform:translate(-50%,-50%) rotateX(72deg) rotateZ(-338deg); }
 }
 
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(156, 107, 255, 0.3);
-        }
-        
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-    </style>
+.float-chip{
+  position:absolute;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:0 14px 30px rgba(0,0,0,.5);
+  z-index:4;
+}
+.chip-android{ width:64px; height:64px; top:6%; left:2%; font-size:26px; animation:chip-float-1 5s ease-in-out infinite; }
+.chip-apple{ width:64px; height:64px; bottom:10%; right:0%; font-size:26px; animation:chip-float-2 6.5s ease-in-out infinite; }
+.chip-ps{ width:50px; height:50px; top:4%; right:8%; font-size:20px; animation:chip-float-3 5.8s ease-in-out infinite; }
+.chip-xbox{ width:50px; height:50px; bottom:4%; left:10%; font-size:20px; animation:chip-float-1 6.2s ease-in-out infinite; }
+@keyframes chip-float-1{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+@keyframes chip-float-2{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(12px); } }
+@keyframes chip-float-3{ 0%,100%{ transform:translateY(0) translateX(0); } 50%{ transform:translateY(-10px) translateX(-6px); } }
+
+/* ---------- Marquee ---------- */
+.marquee-track{ display:flex; width:max-content; animation:marquee 28s linear infinite; }
+.marquee-track span{ white-space:nowrap; padding:0 2.4rem; font-family:'JetBrains Mono',monospace; font-size:.85rem; letter-spacing:.05em; }
+@keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ---------- Cards ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(240,41,155,.4);
+  box-shadow:0 20px 50px rgba(139,18,171,.25);
+}
+.icon-tile{
+  background:linear-gradient(135deg, rgba(139,18,171,.18), rgba(255,138,61,.18));
+  border:1px solid var(--line);
+}
+
+/* ---------- Testimonials ---------- */
+.testi-scroll{
+  display:flex; gap:1.25rem; overflow-x:auto; padding-bottom:1rem;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.testi-scroll::-webkit-scrollbar{ height:6px; }
+.testi-scroll::-webkit-scrollbar-thumb{ background:var(--surface-2); border-radius:10px; }
+.testi-card{ scroll-snap-align:start; flex:0 0 auto; }
+.testi-img{
+  border-radius:20px; border:1px solid var(--line);
+  box-shadow:0 18px 40px rgba(0,0,0,.5);
+}
+
+/* ---------- Reveal ---------- */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+/* ---------- Buttons ---------- */
+.btn-primary{
+  background:linear-gradient(100deg, var(--purple), var(--pink) 60%, var(--orange));
+  color:#fff; font-weight:600;
+  transition:filter .25s ease, transform .25s ease;
+}
+.btn-primary:hover{ filter:brightness(1.12); transform:translateY(-2px); }
+.btn-ghost{
+  border:1px solid var(--line); color:var(--text);
+  transition:border-color .25s ease, background .25s ease;
+}
+.btn-ghost:hover{ border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.04); }
+
+/* ---------- Form ---------- */
+.field{
+  background:var(--surface); border:1px solid var(--line); color:var(--text);
+}
+.field:focus{ outline:none; border-color:var(--pink); }
+.field::placeholder{ color:var(--muted); }
+
+/* ---------- WhatsApp float ---------- */
+.whatsapp-float{
+  position:fixed; width:58px; height:58px; bottom:28px; right:28px;
+  background-color:#25D366; color:#fff; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:28px;
+  box-shadow:0 8px 22px rgba(0,0,0,.5); z-index:100; transition:transform .25s ease;
+}
+.whatsapp-float:hover{ transform:scale(1.1); }
+.whatsapp-float::before{
+  content:''; position:absolute; inset:0; border-radius:50%;
+  box-shadow:0 0 0 0 rgba(37,211,102,.55); animation:wa-pulse 2.4s ease-out infinite;
+}
+@keyframes wa-pulse{ to{ box-shadow:0 0 0 18px rgba(37,211,102,0); } }
+
+/* ---------- Back to top ---------- */
+.to-top{
+  position:fixed; width:46px; height:46px; bottom:28px; left:28px;
+  background:var(--surface-2); color:#fff; border:1px solid var(--line); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:18px;
+  z-index:100; opacity:0; visibility:hidden; transform:translateY(10px);
+  transition:opacity .3s ease, transform .3s ease, visibility .3s; cursor:pointer;
+}
+.to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.to-top:hover{ border-color:var(--pink); }
+
+::selection{ background:var(--pink); color:#fff; }
+</style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-<header class="bg-black shadow-md">
-  <div class="container mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center">
-        <img src="image/mi-nuevo-logo" alt="Logo Onetech" class="h-12 mr-3">
-        <h1 class="text-2xl font-bold text-white">ONETECH</h1>
-      </div>
+<body>
 
-      <!-- Menú escritorio -->
-      <nav class="hidden md:block">
-        <ul class="flex space-x-8">
-          <li><a href="#servicios" class="text-gray-300 hover:text-primary transition">Servicios</a></li>
-          <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-primary transition">Nosotros</a></li>
-          <li><a href="#contacto" class="text-gray-300 hover:text-primary transition">Contacto</a></li>
-        </ul>
-      </nav>
+<!-- Header -->
+<header id="site-header" class="sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-3.5 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-3">
+      <img src="image/logo.png" alt="Onetech Servicio Técnico" class="h-11 w-11 rounded-xl">
+      <span class="font-display text-lg font-bold tracking-wide hidden sm:block">ONETECH</span>
+    </a>
 
-      <!-- Botón menú móvil -->
-      <button id="menu-btn" class="md:hidden focus:outline-none text-gray-300 text-2xl">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#accesorios" class="nav-link">Accesorios</a>
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#testimonios" class="nav-link">Testimonios</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+    </nav>
+
+    <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultarte%20por%20el%20servicio%20de..." target="_blank"
+       class="btn-primary hidden md:inline-flex items-center gap-2 py-2.5 px-5 rounded-full text-sm">
+      <i class="fab fa-whatsapp"></i> Escribinos
+    </a>
+
+    <button id="menu-btn" class="md:hidden text-2xl text-white/90"><i class="fas fa-bars"></i></button>
   </div>
 
-  <!-- Menú desplegable móvil -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-black">
-    <ul class="flex flex-col space-y-4 px-6 py-4">
-      <li><a href="#servicios" class="text-gray-300 hover:text-primary transition">Servicios</a></li>
-      <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-primary transition">Nosotros</a></li>
-      <li><a href="#contacto" class="text-gray-300 hover:text-primary transition">Contacto</a></li>
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[var(--bg-soft)]">
+    <ul class="flex flex-col gap-4 px-6 py-5 text-sm font-medium">
+      <li><a href="#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="#servicios" class="nav-link">Servicios</a></li>
+      <li><a href="#accesorios" class="nav-link">Accesorios</a></li>
+      <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+      <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+      <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      <li>
+        <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultarte%20por%20el%20servicio%20de..." target="_blank"
+           class="btn-primary inline-flex items-center gap-2 py-2.5 px-5 rounded-full w-fit">
+          <i class="fab fa-whatsapp"></i> Escribinos
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
 
+<!-- HERO / INICIO -->
+<section id="inicio" class="hero pt-16 pb-20 md:pt-20">
+  <div class="hero-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
+
+  <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="font-mono text-xs text-[var(--muted)] mb-4 tracking-widest uppercase">// Servicio técnico especializado</p>
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] mb-6">
+        Reparamos lo que <span class="text-grad">te conecta</span> con el mundo
+      </h1>
+      <p class="text-lg text-[var(--muted)] mb-8 max-w-lg">
+        Celulares de todas las marcas, consolas, joysticks y accesorios. Diagnóstico sin cargo, repuestos de calidad y garantía real en cada trabajo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 mb-10">
+        <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultarte%20por%20el%20servicio%20de..." target="_blank"
+           class="btn-primary inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full">
+          <i class="fab fa-whatsapp text-lg"></i> Consultá ahora
+        </a>
+        <a href="#servicios" class="btn-ghost inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full">
+          Ver servicios <i class="fas fa-arrow-down text-sm"></i>
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-6 text-sm text-[var(--muted)]">
+        <span class="flex items-center gap-2"><i class="fas fa-shield-alt text-[var(--pink)]"></i> Garantía en reparaciones</span>
+        <span class="flex items-center gap-2"><i class="fas fa-bolt text-[var(--orange)]"></i> Entrega rápida</span>
+        <span class="flex items-center gap-2"><i class="fas fa-dollar-sign text-[var(--pink)]"></i> Presupuesto sin cargo</span>
+      </div>
+    </div>
+
+    <!-- Phone showcase -->
+    <div class="phone-showcase reveal">
+      <div class="ring ring-b"></div>
+      <div class="ring ring-a"></div>
+      <div class="phone-mock">
+        <div class="screen-glow"><i class="fas fa-bolt text-white/70 text-2xl"></i></div>
+      </div>
+
+      <div class="float-chip chip-android"><i class="fab fa-android text-green-400"></i></div>
+      <div class="float-chip chip-apple"><i class="fab fa-apple text-white"></i></div>
+      <div class="float-chip chip-ps"><i class="fab fa-playstation text-sky-400"></i></div>
+      <div class="float-chip chip-xbox"><i class="fab fa-xbox text-green-500"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee de marcas -->
+<div class="bg-[var(--bg-soft)] border-y border-white/5 py-3 overflow-hidden text-[var(--muted)]">
+  <div class="marquee-track">
+    <span>Samsung</span><span>·</span><span>Motorola</span><span>·</span><span>iPhone</span><span>·</span>
+    <span>Xiaomi</span><span>·</span><span>PlayStation 4</span><span>·</span><span>PlayStation 5</span><span>·</span>
+    <span>Xbox</span><span>·</span><span>Joysticks</span><span>·</span><span>Todas las marcas</span><span>·</span>
+    <span>Samsung</span><span>·</span><span>Motorola</span><span>·</span><span>iPhone</span><span>·</span>
+    <span>Xiaomi</span><span>·</span><span>PlayStation 4</span><span>·</span><span>PlayStation 5</span><span>·</span>
+    <span>Xbox</span><span>·</span><span>Joysticks</span><span>·</span><span>Todas las marcas</span><span>·</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 bg-[var(--bg)]">
+  <div class="container mx-auto px-6">
+    <p class="font-mono text-xs text-center text-[var(--pink)] uppercase tracking-widest mb-3 reveal">Qué hacemos</p>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-4 reveal">Servicios especializados</h2>
+    <p class="text-[var(--muted)] text-center max-w-xl mx-auto mb-14 reveal">Trabajamos con equipos de diagnóstico y repuestos de calidad para que tu dispositivo vuelva a funcionar como el primer día.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="card rounded-2xl p-7 reveal">
+        <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-mobile-screen-button text-[var(--pink)]"></i></div>
+        <h3 class="font-display text-lg font-bold mb-2">Reparaciones físicas</h3>
+        <p class="text-[var(--muted)] text-sm mb-4">Todo lo que tu equipo necesita por fuera y por dentro.</p>
+        <ul class="space-y-2 text-sm text-[var(--muted)]">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Cambio de módulo de pantalla</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Reemplazo de baterías</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Puertos de carga, parlantes y micrófonos</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Cámaras y tapas traseras</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl p-7 reveal" style="transition-delay:.06s">
+        <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-microchip text-[var(--orange)]"></i></div>
+        <h3 class="font-display text-lg font-bold mb-2">Microsoldadura y placas</h3>
+        <p class="text-[var(--muted)] text-sm mb-4">Diagnóstico y reparación a nivel de componente.</p>
+        <ul class="space-y-2 text-sm text-[var(--muted)]">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Microsoldaduras en placa</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Reparación de circuitos</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Cambio de componentes</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Diagnóstico con microscopio</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl p-7 reveal" style="transition-delay:.12s">
+        <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-laptop-code text-[var(--pink)]"></i></div>
+        <h3 class="font-display text-lg font-bold mb-2">Software y sistemas</h3>
+        <p class="text-[var(--muted)] text-sm mb-4">Tu equipo actualizado, rápido y sin errores.</p>
+        <ul class="space-y-2 text-sm text-[var(--muted)]">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Actualización y restauración de software</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Recuperación de datos y fotos</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Configuración y optimización</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl p-7 reveal" style="transition-delay:.18s">
+        <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-gamepad text-[var(--orange)]"></i></div>
+        <h3 class="font-display text-lg font-bold mb-2">Consolas y joysticks</h3>
+        <p class="text-[var(--muted)] text-sm mb-4">Que la partida no se corte por un joystick roto.</p>
+        <ul class="space-y-2 text-sm text-[var(--muted)]">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Reparación de joysticks</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>PlayStation 4 y PlayStation 5</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Xbox</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--orange)] mt-1"></i>Mantenimiento y limpieza</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl p-7 reveal" style="transition-delay:.24s">
+        <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-magnifying-glass text-[var(--pink)]"></i></div>
+        <h3 class="font-display text-lg font-bold mb-2">Diagnóstico sin cargo</h3>
+        <p class="text-[var(--muted)] text-sm mb-4">Te decimos qué tiene tu equipo antes de cobrarte nada.</p>
+        <ul class="space-y-2 text-sm text-[var(--muted)]">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Presupuesto claro y sin sorpresas</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Equipos de diagnóstico especializados</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-[var(--pink)] mt-1"></i>Explicación en criollo, sin tecnicismos</li>
+        </ul>
+      </div>
+
+      <a href="#accesorios" class="card rounded-2xl p-7 reveal flex flex-col justify-between" style="transition-delay:.3s">
+        <div>
+          <div class="icon-tile w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"><i class="fas fa-shop text-[var(--orange)]"></i></div>
+          <h3 class="font-display text-lg font-bold mb-2">Accesorios</h3>
+          <p class="text-[var(--muted)] text-sm">Fundas, cargadores, auriculares, parlantes y vidrios templados para todos los modelos.</p>
+        </div>
+        <span class="text-sm font-semibold text-[var(--pink)] mt-5 inline-flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-xs"></i></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACCESORIOS -->
+<section id="accesorios" class="py-24 bg-[var(--bg-soft)] border-y border-white/5">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+    <div class="reveal order-2 md:order-1">
+      <p class="font-mono text-xs text-[var(--pink)] uppercase tracking-widest mb-3">Accesorios</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Todo para cuidar y potenciar tu equipo</h2>
+      <p class="text-[var(--muted)] mb-8">Además de reparar, tenemos una amplia variedad de accesorios originales y de calidad para que tu dispositivo esté siempre protegido y a la moda.</p>
+
+      <div class="grid grid-cols-2 gap-4 mb-9">
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt text-[var(--pink)]"></i></div><span class="text-sm">Fundas</span></div>
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-bolt text-[var(--orange)]"></i></div><span class="text-sm">Cargadores</span></div>
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-headphones text-[var(--pink)]"></i></div><span class="text-sm">Auriculares</span></div>
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-volume-high text-[var(--orange)]"></i></div><span class="text-sm">Parlantes</span></div>
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-shield-halved text-[var(--pink)]"></i></div><span class="text-sm">Vidrios templados</span></div>
+        <div class="flex items-center gap-3"><div class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-plus text-[var(--orange)]"></i></div><span class="text-sm">Y mucho más</span></div>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultar%20por%20accesorios..." target="_blank"
+         class="btn-primary inline-flex items-center gap-2 py-3 px-7 rounded-full">
+        <i class="fab fa-whatsapp"></i> Consultar disponibilidad
+      </a>
+    </div>
+
+    <div class="reveal order-1 md:order-2">
+      <img src="image/accesorios.jpg" alt="Exhibidor de fundas y accesorios para celulares en Onetech" class="rounded-2xl border border-white/10 shadow-2xl w-full">
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="py-24 bg-[var(--bg)]">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <img src="image/andres-taller.jpg" alt="Andrés, técnico de Onetech, reparando una placa con microscopio" class="rounded-2xl border border-white/10 shadow-2xl w-full">
+    </div>
+
+    <div class="reveal">
+      <p class="font-mono text-xs text-[var(--pink)] uppercase tracking-widest mb-3">Quién te atiende</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Sobre nosotros</h2>
+      <p class="text-[var(--muted)] mb-4">Soy Andrés, y cuento con más de 5 años de experiencia en el rubro. Mi prioridad es ofrecerte soluciones reales y brindarte la confianza de saber que tu equipo está en buenas manos.</p>
+      <p class="text-[var(--muted)] mb-9">Trabajo con las mejores herramientas y componentes del mercado para garantizar reparaciones de calidad.</p>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="flex items-center gap-3">
+          <div class="icon-tile w-11 h-11 rounded-full flex items-center justify-center"><i class="fas fa-dollar-sign text-[var(--pink)]"></i></div>
+          <span class="text-sm font-medium">Presupuestos sin cargo</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="icon-tile w-11 h-11 rounded-full flex items-center justify-center"><i class="fas fa-shield-alt text-[var(--orange)]"></i></div>
+          <span class="text-sm font-medium">Garantía de confianza</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="py-24 bg-[var(--bg-soft)] border-y border-white/5">
+  <div class="container mx-auto px-6">
+    <p class="font-mono text-xs text-center text-[var(--pink)] uppercase tracking-widest mb-3 reveal">Clientes felices</p>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-4 reveal">Lo que dicen de nosotros</h2>
+    <p class="text-[var(--muted)] text-center max-w-xl mx-auto mb-14 reveal">Historias reales, compartidas por nuestros clientes en Instagram.</p>
+  </div>
+
+  <div class="testi-scroll px-6 reveal">
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t1.jpg" alt="Testimonio cliente Onetech - cambio de módulo" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t2.jpg" alt="Testimonio cliente Onetech - módulo y templado" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t3.jpg" alt="Testimonio cliente Onetech - cambio de módulo iPhone" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t4.jpg" alt="Testimonio cliente Onetech - reparación iPhone" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t5.jpg" alt="Testimonio cliente Onetech - cambio de batería" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t6.jpg" alt="Testimonio cliente Onetech - cambio de módulo Motorola" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t7.jpg" alt="Testimonio cliente Onetech - reparación iPhone" class="testi-img w-full">
+    </div>
+    <div class="testi-card w-[210px] sm:w-[230px]">
+      <img src="image/testimonios/t8.jpg" alt="Testimonio cliente Onetech - reparación de pantalla" class="testi-img w-full">
+    </div>
+  </div>
+
+  <p class="text-center text-[var(--muted)] text-sm mt-4 reveal">Deslizá para ver más → seguinos en <a href="https://www.instagram.com/onetech.serviciotecnico/" target="_blank" class="text-[var(--pink)] hover:underline">@onetech.serviciotecnico</a></p>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-24 bg-[var(--bg)] relative overflow-hidden">
+  <div class="glow glow-1" style="opacity:.25"></div>
+  <div class="glow glow-2" style="opacity:.2"></div>
+
+  <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-14">
+
+    <div class="reveal">
+      <p class="font-mono text-xs text-[var(--pink)] uppercase tracking-widest mb-3">Contacto</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Hablemos de tu equipo</h2>
+      <p class="text-[var(--muted)] mb-9">Escribinos por WhatsApp, dejanos tu consulta acá abajo, o pasá por el local. Te respondemos a la brevedad.</p>
+
+      <div class="space-y-5 mb-10">
+        <a href="tel:3564691487" class="flex items-center gap-4 group">
+          <div class="icon-tile w-12 h-12 rounded-full flex items-center justify-center"><i class="fas fa-phone-alt text-[var(--pink)]"></i></div>
+          <span class="group-hover:text-[var(--pink)] transition">3564 691487</span>
+        </a>
+        <a href="https://www.google.com/maps/place/San+Francisco,+Córdoba" target="_blank" class="flex items-center gap-4 group">
+          <div class="icon-tile w-12 h-12 rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-[var(--orange)]"></i></div>
+          <span class="group-hover:text-[var(--orange)] transition">San Francisco, Córdoba</span>
+        </a>
+        <a href="https://www.instagram.com/onetech.serviciotecnico/" target="_blank" class="flex items-center gap-4 group">
+          <div class="icon-tile w-12 h-12 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-[var(--pink)]"></i></div>
+          <span class="group-hover:text-[var(--pink)] transition">@onetech.serviciotecnico</span>
+        </a>
+        <a href="https://www.facebook.com/onetech.servicetecnico" target="_blank" class="flex items-center gap-4 group">
+          <div class="icon-tile w-12 h-12 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-[var(--orange)]"></i></div>
+          <span class="group-hover:text-[var(--orange)] transition">Onetech Servicio Técnico</span>
+        </a>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultarte%20por%20el%20servicio%20de..." target="_blank"
+         class="btn-primary inline-flex items-center gap-2 py-3.5 px-7 rounded-full">
+        <i class="fab fa-whatsapp text-lg"></i> Escribir por WhatsApp
+      </a>
+    </div>
+
+    <div class="card rounded-2xl p-7 md:p-8 reveal">
+      <h3 class="font-display text-xl font-bold mb-1">Dejanos tu consulta</h3>
+      <p class="text-[var(--muted)] text-sm mb-6">Completá el formulario y se abre WhatsApp con tu mensaje listo para enviar.</p>
+
+      <form id="contact-form" class="space-y-4">
+        <div>
+          <label class="text-sm text-[var(--muted)] block mb-1.5" for="nombre">Nombre</label>
+          <input id="nombre" type="text" required placeholder="Tu nombre" class="field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-sm text-[var(--muted)] block mb-1.5" for="telefono">Teléfono</label>
+          <input id="telefono" type="tel" required placeholder="Tu número" class="field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-sm text-[var(--muted)] block mb-1.5" for="equipo">Equipo</label>
+          <input id="equipo" type="text" placeholder="Ej: iPhone 11, PS5, joystick..." class="field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-sm text-[var(--muted)] block mb-1.5" for="mensaje">Contanos qué pasó</label>
+          <textarea id="mensaje" required rows="4" placeholder="Describí el problema..." class="field w-full rounded-lg px-4 py-3 text-sm resize-none"></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full py-3.5 rounded-full inline-flex items-center justify-center gap-2">
+          <i class="fab fa-whatsapp text-lg"></i> Enviar consulta
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[var(--bg-soft)] border-t border-white/5 pt-16 pb-10">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <div class="col-span-1 md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="image/logo.png" alt="Onetech Servicio Técnico" class="h-11 w-11 rounded-xl">
+          <span class="font-display text-lg font-bold">ONETECH</span>
+        </div>
+        <p class="text-[var(--muted)] text-sm max-w-sm leading-relaxed">Servicio técnico especializado en celulares de todas las marcas, consolas, joysticks y accesorios tecnológicos, con garantía y atención personalizada.</p>
+        <div class="flex gap-3 mt-6">
+          <a href="https://www.instagram.com/onetech.serviciotecnico/" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[var(--pink)] transition"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/onetech.servicetecnico" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[var(--pink)] transition"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=5493564691487" target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[var(--pink)] transition"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold mb-4 text-sm uppercase tracking-wide">Navegación</h4>
+        <ul class="space-y-2.5 text-sm text-[var(--muted)]">
+          <li><a href="#servicios" class="hover:text-[var(--pink)] transition">Servicios</a></li>
+          <li><a href="#accesorios" class="hover:text-[var(--pink)] transition">Accesorios</a></li>
+          <li><a href="#nosotros" class="hover:text-[var(--pink)] transition">Nosotros</a></li>
+          <li><a href="#testimonios" class="hover:text-[var(--pink)] transition">Testimonios</a></li>
+          <li><a href="#contacto" class="hover:text-[var(--pink)] transition">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold mb-4 text-sm uppercase tracking-wide">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-[var(--muted)]">
+          <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-xs"></i> 3564 691487</li>
+          <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-xs"></i> San Francisco, Córdoba</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="text-center text-[var(--muted)] text-xs border-t border-white/5 pt-8">© <span id="year"></span> Onetech Servicio Técnico. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola!%20Quiero%20consultarte%20por%20el%20servicio%20de..." target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Volver arriba -->
+<button id="to-top" class="to-top" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
 <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menú móvil
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const menuIcon = menuBtn.querySelector("i");
-
-  // Abrir/cerrar menú
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
     menuIcon.classList.toggle("fa-bars");
     menuIcon.classList.toggle("fa-times");
   });
-
-  // Cerrar menú al hacer clic en un enlace
   document.querySelectorAll("#mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
@@ -113,275 +660,42 @@
       menuIcon.classList.remove("fa-times");
     });
   });
+
+  // Scroll: back to top
+  const toTopBtn = document.getElementById('to-top');
+  window.addEventListener('scroll', () => {
+    toTopBtn.classList.toggle('show', window.scrollY > 420);
+  });
+  toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Formulario -> WhatsApp
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const equipo = document.getElementById('equipo').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    let texto = `Hola! Soy ${nombre}.`;
+    if (equipo) texto += ` Tengo un ${equipo}.`;
+    texto += ` ${mensaje}`;
+    texto += ` (Tel: ${telefono})`;
+
+    const url = `https://api.whatsapp.com/send?phone=5493564691487&text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  });
 </script>
 
-
-    <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <img src="image/mi-nuevo-logo" alt="Logo Onetech grande" class="mx-auto mb-8 h-48 md:h-56 lg:h-64">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Reparación Profesional de Celulares</h2>
-            <p class="text-xl md:text-2xl mb-8">Tus dispositivos en manos de expertos. Rápido, seguro y con garantía.</p>
-            <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola quiero consultarte por el servicio de..." target="_blank" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 inline-flex items-center">
-                <i class="fab fa-whatsapp mr-2 text-xl"></i> Hola! Quiero consultarte por el servicio de...
-            </a>
-            <!-- Íconos de sistemas operativos -->
-<div class="flex justify-center gap-6 mt-8 text-5xl">
-    <i class="fab fa-android text-green-500" title="Reparación Android"></i>
-    <i class="fab fa-apple text-gray-200" title="Reparación iOS"></i>
-</div>
-
-        </div>
-    </section>
-
-    <!-- Servicios Destacados -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800" id="servicios">Nuestros Servicios Especializados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary transition duration-300">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Reparación Integral</h3>
-                    <p class="text-gray-600">Soluciones completas para cualquier problema en tu dispositivo móvil.</p>
-                </div>
-                
-                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary transition duration-300">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Microsoldaduras</h3>
-                    <p class="text-gray-600">Reparación de componentes electrónicos a nivel micro.</p>
-                </div>
-                
-                <div class="service-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary transition duration-300">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Software & Sistemas</h3>
-                    <p class="text-gray-600">Actualizaciones, liberación, recuperación de datos y más.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Todos los Servicios -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Detalle Completo de Servicios</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Panel 1: Reparaciones Físicas -->
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-                            <i class="fas fa-tools text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Reparaciones Físicas</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Cambio de pantallas y módulos (display, táctil)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Reemplazo de baterías</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Reparación de puertos de carga</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Cambio de parlantes y micrófonos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Reparación/reemplazo de cámaras</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Cambio de tapas traseras</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Panel 2: Reparaciones Electrónicas -->
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-                            <i class="fas fa-microchip text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Reparaciones Electrónicas</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Microsoldaduras en placas</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Reparación de circuitos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Cambio de componentes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Diagnóstico con equipos especializados</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Panel 3: Software y Otros -->
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
-                            <i class="fas fa-laptop-code text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Software y Otros</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Actualización y restauración de software</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Recuperación de datos y fotos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Liberación de redes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Reparación de icloud/android lock</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
-                            <span class="text-gray-600">Configuración y optimización</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Nosotros -->
-<!-- Sobre Nosotros -->
-<section class="py-16 bg-white" id="sobre-nosotros">
-  <div class="container mx-auto px-6 md:px-12 text-center">
-    
-    <!-- Imagen -->
-    <div class="mb-8">
-      <img src="image/andres-tecnico.jpeg" 
-           alt="Andrés, técnico de Onetech, reparando una placa con microscopio" 
-           class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-xl mx-auto px-4">
-    </div>
-    
-    <!-- Texto -->
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-gray-800">Sobre mí</h2>
-      <p class="text-gray-600 mb-4">Soy Andrés, y cuento con más de 5 años de experiencia en el rubro. Mi prioridad es ofrecerte soluciones reales y brindarte la confianza de saber que tu equipo está en buenas manos.</p>
-      <p class="text-gray-600 mb-8">Trabajo con las mejores herramientas y componentes del mercado para garantizar reparaciones de calidad.</p>
-      
-      <div class="grid grid-cols-2 gap-6">
-        <div class="flex items-center justify-center">
-          <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-3">
-            <i class="fas fa-medal text-primary"></i>
-          </div>
-          <span class="text-gray-600 font-medium">Reparaciones con garantía</span>
-        </div>
-        <div class="flex items-center justify-center">
-          <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-3">
-            <i class="fas fa-clock text-primary"></i>
-          </div>
-          <span class="text-gray-600 font-medium">Entrega rápida</span>
-        </div>
-        <div class="flex items-center justify-center">
-          <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-3">
-            <i class="fas fa-dollar-sign text-primary"></i>
-          </div>
-          <span class="text-gray-600 font-medium">Presupuestos sin cargo</span>
-        </div>
-        <div class="flex items-center justify-center">
-          <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-3">
-            <i class="fas fa-shield-alt text-primary"></i>
-          </div>
-          <span class="text-gray-600 font-medium">Garantía de confianza</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Llamado a la acción -->
-<section class="py-16 bg-gradient-to-r from-purple-900 to-purple-600 text-white">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Necesitas reparar tu dispositivo?</h2>
-        <p class="text-xl mb-8">Contactanos ahora y obtené una solución rápida y profesional</p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <!-- Botón solo con acción, sin repetir el número -->
-            <a href="tel:3564691487" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
-                <i class="fas fa-phone-alt mr-2"></i> Llamar ahora
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=5493564691487&text=Hola quiero consultarte por el servicio de..." class="bg-purple-900 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-800 transition duration-300 inline-flex items-center justify-center">
-                <i class="fab fa-whatsapp mr-2"></i> Enviar WhatsApp
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Columna 1 -->
-            <div>
-                <div class="flex items-center mb-4">
-                    <img src="image/mi-nuevo-logo" alt="Logo pequeño de Onetech" class="h-10 mr-3">
-                    <h3 class="text-xl font-bold">ONETECH</h3>
-                </div>
-                <p class="text-gray-400">Servicio técnico profesional de celulares con garantía y atención personalizada.</p>
-            </div>
-            
-            <!-- Columna 2 -->
-<div id="contacto">
-    <h4 class="text-lg font-bold mb-4">Contacto</h4>
-    <ul class="space-y-2">
-        <li class="flex items-center">
-            <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
-            <a href="tel:3564691487" class="text-gray-400 hover:text-primary transition">3564 691487</a>
-        </li>
-        <li class="flex items-center">
-            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
-            <a href="https://www.google.com/maps/place/San+Francisco,+Córdoba" target="_blank" class="text-white hover:text-primary transition">
-                San Francisco, Córdoba
-            </a>
-        </li>
-    </ul>
-</div>
-
-            
-            <!-- Columna 3 -->
-            <div>
-                <h4 class="text-lg font-bold mb-4">Redes Sociales</h4>
-                <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/onetech.servicetecnico" target="_blank" class="bg-gray-800 hover:bg-primary transition w-10 h-10 rounded-full flex items-center justify-center">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/onetech.serviciotecnico/" target="_blank" class="bg-gray-800 hover:bg-primary transition w-10 h-10 rounded-full flex items-center justify-center">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</footer>
+</body>
+</html>
